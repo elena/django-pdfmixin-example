@@ -1,11 +1,12 @@
-django-pdfmixin-example
-=======================
-
 Django CBV simple PDF mixin example project.
+==========================================
+
 
 """ This is based on the case scenario where you have a model which has a
 `DetailView`, but a "bespoke" PDF for the same model is also created that is
 not dependent on the `DetailView` (except to provide the query object).
+
+Such as a "brochure" style version of the web content.
 
 The PDF needs to be returned as a `HTTPResponse` object. The model object is
 provided.
