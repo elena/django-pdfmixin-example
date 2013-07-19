@@ -2,8 +2,8 @@
 from django.views.generic import DetailView
 from django.views.generic.base import TemplateResponseMixin
 
-from pages.models import Page
-from pages.pdfs import render_to_pdf
+from .models import Page
+from .pdfs import render_to_pdf
 
 
 class PDFResponseMixin(TemplateResponseMixin):
@@ -32,8 +32,7 @@ class PDFResponseMixin(TemplateResponseMixin):
         return value.lower() == self.pdf_querydict_value.lower()
 
     def get_pdf_response(self, context, **response_kwargs):
-        model_object = context[self.context_object_name]
-        return render_to_pdf(model_object)
+        return render_to_pdf(self.get_object())
 
     def render_to_response(self, context, **response_kwargs):
         if self.is_pdf():
